@@ -1,0 +1,95 @@
+<div class="container w-75">
+  <div class="col-12" *ngFor="let item of Exams">
+    <div class="card m-3 border-primary">
+      <div class="card-body">
+        <h5 class="card-title">Exam Title: ({{ item.name }})</h5>
+        <p class="card-text">Number Of Questions: {{ item.questionCount }}</p>
+        <p class="card-text">Date: {{ item.createdAt }}</p>
+        <a [routerLink]="'/exam/'+ item.id" class="btn btn-primary">Start Exam</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- 
+<div class="container w-75">
+  <div class="col-12">
+    <div class="card m-3 border-primary">
+      <div class="card-body">
+        <h5 class="card-title">Exam Title Example</h5>
+        <p class="card-text">Duration:minutes</p>
+        <p class="card-text">Date:</p>
+        <a href="" class="btn btn-primary">Start Exam</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container w-75">
+  <div class="col-12">
+    <div class="card m-3 border-primary">
+      <div class="card-body">
+        <h5 class="card-title">Exam Title Example</h5>
+        <p class="card-text">Duration:minutes</p>
+        <p class="card-text">Date:</p>
+        <a href="" class="btn btn-primary">Start Exam</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container w-75">
+  <div class="col-12">
+    <div class="card m-3 border-primary">
+      <div class="card-body">
+        <h5 class="card-title">Exam Title Example</h5>
+        <p class="card-text">Duration:minutes</p>
+        <p class="card-text">Date:</p>
+        <a href="" class="btn btn-primary">Start Exam</a>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+<!-- <div class="container">
+  <h2 class="text-center m-3">Exams</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Image</th>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of Exams">
+        <th scope="row">{{ product.id }}</th>
+        <td><img src="{{ product.imgUrl }}" style="width: 50px" /></td>
+        <td>{{ product.productName }}</td>
+        <td class="text-danger">{{ product.price | currency }}</td>
+        <td class="text-success">{{ product.quantity }}</td>
+        <td>
+          <i
+            [routerLink]="['/products', product.id]"
+            class="fs-2 mx-1 bi bi-arrows-angle-expand"
+          ></i>
+          <i
+            [routerLink]="['/products', product.id, 'edit']"
+            class="fs-2 mx-1 bi bi-pencil-square"
+          ></i>
+          <i
+            
+            class="fs-2 mx-1 text-danger bi bi-trash3"
+          ></i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div> -->
+
+

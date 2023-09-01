@@ -1,0 +1,72 @@
+<section class="min-vh-100 d-flex align-items-center bg-soft">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12">
+        <div class="signin-inner mt-3 mt-lg-0 bg-white shadow border rounded border-light w-100">
+          <div class="row gx-0 align-items-center justify-content-between">
+            <div class="col-12 col-lg-5 d-none d-lg-block rounded-left bg-secondary">
+              <img src="https://media.istockphoto.com/id/1156404259/vector/contact-us-3d-speech-bubble-sign.jpg?s=612x612&w=0&k=20&c=NN3bHQLSRzZF4a6UY9kH-C10J57CSG79HzpAZtR8bBg=" alt="login image" />
+            </div>
+            <div class="col-12 col-lg-7 px-3 py-5 px-sm-5 px-md-6">
+              <div class="text-center text-md-center mb-4 mt-md-0">
+                <h1 class="mb-0 h3">Contact US</h1>
+              </div>
+
+              <div *ngIf="successMessage" class="alert alert-success">
+                {{ successMessage }}
+              </div>
+
+              <div *ngIf="errorMessage" class="alert alert-danger bg-danger">
+                {{ errorMessage }}
+              </div>
+
+              <form [formGroup]="contactUsForm" (submit)="onSubmit($event)" id="mainform">
+                <!-- Form -->
+                <div class="form-group mb-4">
+                  <label for="name">Name</label>
+                  <input formControlName ="name" name="name" class="form-control" placeholder="Enter Your Name" />
+                  <ng-container *ngIf="getName.touched" >
+
+                    <span *ngIf="getName.hasError('required')" class="text-danger" >Name Is Reqiured</span>
+                    <span *ngIf="getName.hasError('minlength')" class="text-danger" >Name Must Be More Than 3 Letters</span>
+
+                   </ng-container>
+                </div>
+                <!-- End of Form -->
+                <!-- Form -->
+                <div class="form-group mb-4">
+                  <label for="email">Your Email</label>
+                  <input formControlName ="email" name="email" class="form-control" placeholder="Enter Your Email" />
+                  <ng-container *ngIf="getEmail.touched" >
+
+                    <span *ngIf="getEmail.hasError('required')" class="text-danger" >Email Is Reqiured</span>
+                    <span *ngIf="getEmail.hasError('email')" class="text-danger" >"Enter a valid email address"</span>
+
+                   </ng-container>
+                </div>
+                <!-- End of Form -->
+                <!-- Form -->
+                <div class="form-group mb-4">
+                  <label for="message">Message:</label>
+                  <textarea formControlName="message" name="message" rows="5" class="form-control" placeholder="Enter your message here"></textarea>
+                  <ng-container *ngIf="getMsg.touched">
+
+                    <span *ngIf="getMsg.hasError('required')" class="text-danger">Message is required</span>
+                    <span *ngIf="getMsg.hasError('minlength')" class="text-danger">Message must be at least 10 characters long</span>
+
+                  </ng-container>
+                </div>
+                <!-- End of Form -->
+                <button class="btn btn-block btn-primary" type="submit" [disabled]="isSending" [ngClass]="{'btn-primary': !isSending, 'btn-secondary': isSending}">
+                  <span *ngIf="isSending" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                  <span *ngIf="!isSending">Send</span>
+                </button>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

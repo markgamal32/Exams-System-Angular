@@ -1,0 +1,22 @@
+<div class="container mt-5 pt-5 mb-5 pb-5">
+    <h2>Edit Exam</h2>
+    <form #editForm="ngForm" (ngSubmit)="submitForm(editForm)">
+      <input class="form-control mb-4" placeholder="Enter Exam Title" [(ngModel)]="exam.Name" name="examTitle" required />
+  
+      <div class="question-container">
+        <div class="question mt-4" *ngFor="let question of exam?.ExamQuestions?.$values; let i = index;">
+          <b>Question {{ i+1 }}</b>
+          <input type="text" class="form-control form-control-solid mt-3" placeholder="Question Title" [(ngModel)]="question.Title" name="questionTitle{{i}}" required>
+  
+          <div class="form-group" *ngFor="let option of question?.Options?.$values; let j = index;">
+            <div class="d-flex align-items-center input-group">
+              <input type="radio" [value]="j" class="form-check-input" name="question{{i}}CorrectOption" [checked]="option.IsRight">
+              <input type="text" class="form-control form-control-solid mt-3 ms-2" placeholder="Option Title" [(ngModel)]="option.Title" name="question{{i}}OptionTitle{{j}}" required>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <button class="btn btn-primary mt-4" type="submit" [disabled]="submitText !== 'Submit'">{{submitText}}</button>
+    </form>
+  </div>

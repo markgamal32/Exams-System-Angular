@@ -1,0 +1,30 @@
+<div class="mt-5 pt-5 mb-5 pb-5">
+    <div class="container my-5">
+        <div class="d-flex justify-content-between">
+            <h1>Exams</h1>
+            <button class="btn btn-primary" [routerLink]="'/admin/exam/create'">Add new exam</button>
+        </div>
+
+        <table class="table mt-5">
+            <thead>
+                <th>Exam Title</th>
+                <th>Questions Count</th>
+                <th>Created At</th>
+                <th>Actions</th>
+            </thead>
+            <tbody>
+
+                <tr *ngFor="let exam of  Exams ">
+                    <td>{{exam.name}}</td>
+                    <td>{{exam.questionCount}}</td>
+                    <td> {{exam.createdAt }}</td>
+                    <td>
+                        <a href="/admin/exam/{{exam.id}}/edit" class="btn btn-primary me-2">Edit</a>
+                        <button class="btn btn-danger" (click)="deleteExam(exam.id)">Delete</button>
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

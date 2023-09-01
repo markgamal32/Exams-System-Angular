@@ -1,0 +1,35 @@
+<div class="container pt-5" *ngIf="!isAlreadyTaken; else alreadytaken">
+    <div class="text-center mb-5">
+        <h1>{{ exam.Name }}</h1>
+        <p class="small">Number of questions: {{exam.QuestionCount}}</p>
+    </div>
+
+    <p class="lead">Answer the following questions:</p>
+    <hr />
+
+<div class="question-container">
+  <div class="question" *ngFor="let question of exam?.ExamQuestions?.$values; let i = index;">
+    <p class="fw-bold">({{ i + 1 }}): {{ question?.Title }}</p>
+    <div class="form-group" *ngFor="let option of question?.Options?.$values; let j = index;">
+        <div class="d-flex align-items-center input-group">
+          <input type="radio" id="option{{ i }}{{ j }}" name="question{{ i }}" [value]="option.Id" [(ngModel)]="selectedOptions[i]" />
+          <label for="option{{ i }}{{ j }}">{{ option?.Title }}</label>
+        </div>
+    </div>
+  </div>
+</div>
+
+<button (click)="submit()" class="btn btn-primary mb-5" [disabled]="submitting === 'true'" >{{ submitText }}</button>
+</div>
+
+
+
+<ng-template #alreadytaken>
+  <div class="main">
+      <div class="text-center">
+          <h2 class="alert alert-danger">Sorry You Already Took this exam before</h2>
+          <a href="/" class="btn btn-primary">Back Home</a>
+      </div>
+  </div>
+</ng-template>
+

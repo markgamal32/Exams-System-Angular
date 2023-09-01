@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <!-- Primary Meta Tags -->
+  <title>School Exam Website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="canonical"
+    href="https://themesberg.com/product/bootstrap/swipe-free-mobile-app-one-page-bootstrap-5-template" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://demo.themesberg.com/swipe/" />
+  <meta property="og:title" content="Swipe - Mobile App One Page Bootstrap 5 Template" />
+  <meta property="og:description" content="Free Mobile Application One Page Bootstrap 5 Template by Themesberg" />
+  <meta property="og:image"
+    content="https://themesberg.s3.us-east-2.amazonaws.com/public/products/swipe/swipe-thumbnail.jpg" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://demo.themesberg.com/swipe/" />
+  <meta property="twitter:title" content="Swipe - Mobile App One Page Bootstrap 5 Template" />
+  <meta property="twitter:description" content="Free Mobile Application One Page Bootstrap 5 Template by Themesberg" />
+  <meta property="twitter:image"
+    content="https://themesberg.s3.us-east-2.amazonaws.com/public/products/swipe/swipe-thumbnail.jpg" />
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="120x120" href="./assets/img/favicon/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/img/favicon/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/img/favicon/favicon-16x16.png" />
+  <link rel="manifest" href="./assets/img/favicon/site.webmanifest" />
+  <link rel="mask-icon" href="./assets/img/favicon/safari-pinned-tab.svg" color="#ffffff" />
+  <meta name="msapplication-TileColor" content="#ffffff" />
+  <meta name="theme-color" content="#ffffff" />
+
+</head>
+
+<body>
+  <main>
+    <section class="min-vh-100 d-flex align-items-center bg-soft">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12">
+            <div class="signin-inner mt-3 mt-lg-0 bg-white shadow border rounded border-light w-100">
+              <div class="row gx-0 align-items-center justify-content-between">
+                <div class="col-12 col-lg-5 d-none d-lg-block rounded-left bg-secondary">
+                  <img src="./assets/img/illustrations/login.svg" alt="login image" />
+                </div>
+                <div class="col-12 col-lg-7 px-3 py-5 px-sm-5 px-md-6">
+                  <div class="text-center text-md-center mb-4 mt-md-0">
+                    <h1 class="mb-0 h3">Sign In</h1>
+                  </div>
+
+
+                  <div *ngIf="errorMessage" class="alert alert-danger">
+                    Email or Password May be invalid
+                  </div>
+
+                  <form (ngSubmit)="submitsignInForm(signInForm)" method="post" id="mainform" [formGroup]="signInForm">
+                    <!-- Form -->
+                    <div class="form-group mb-2">
+                      <label for="exampleInputPasswordCard4">Enter your Email</label>
+                      <div class="input-group">
+                        <span class="input-group-text" id="basic-addon5"><span class="fas fa-unlock-alt"></span></span>
+                        <input formControlName="email" type="text" placeholder="Enter your Email" class="form-control"
+                          id="exampleInputPasswordCard5" />
+                      </div>
+                    </div>
+                    <ng-container *ngIf="GetEmail.touched" class="mb-4">
+                      <div *ngIf="GetEmail.hasError('required')" id="emailHelp" class="form-text text-danger">
+                        Email Is Required
+                      </div>
+                    </ng-container>
+                    <!-- End of Form -->
+                    <!-- Form -->
+                    <div class="form-group mb-2">
+                      <label for="exampleInputPasswordCard4"> Password</label>
+                      <div class="input-group">
+                        <span class="input-group-text" id="basic-addon5"><span class="fas fa-unlock-alt"></span></span>
+                        <input formControlName="password" type="password" placeholder=" Password" class="form-control"
+                          id="exampleInputPasswordCard5" />
+                      </div>
+                    </div>
+                    <ng-container *ngIf="GetPassword.touched" class="mb-4">
+                      <div *ngIf="GetPassword.hasError('required')" id="emailHelp" class="form-text text-danger">
+                        Password Is Required
+                      </div>
+                    </ng-container>
+                    <!-- End of Form -->
+
+
+                    <!-- <button type="submit" class="btn btn-block btn-primary">
+                      Sign In
+                    </button> -->
+
+                    <button type="submit" value="Register" class="btn btn-block btn-primary col-lg-2">
+                      <span *ngIf="!isLoading">Sign In </span>
+                      <i *ngIf="isLoading" class="fas fa-spinner fa-spin"><fa-icon [icon]="faSpinner"></fa-icon>
+                      </i>
+                    </button>
+
+                  </form>
+                  <div class="d-flex justify-content-center align-items-center mt-4">
+                    <span class="font-weight-normal">
+                      Create New Account?
+                      <a [routerLink]="'/SignUp'" [routerLinkActive]="'font-weight-bold'"
+                        [routerLinkActiveOptions]="{ exact: true }" class="font-weight-bold">
+                        Sign Up</a>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Core -->
+  <script src="./vendor/popper.js/dist/umd/popper.min.js"></script>
+  <script src="./vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="./vendor/headroom.js/dist/headroom.min.js"></script>
+
+  <!-- Vendor JS -->
+  <script src="./vendor/onscreen/dist/on-screen.umd.min.js"></script>
+  <script src="./vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  <!-- Swipe JS -->
+  <script src="./assets/js/swipe.js"></script>
+</body>
+
+</html>

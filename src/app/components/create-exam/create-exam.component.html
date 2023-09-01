@@ -1,0 +1,34 @@
+<div class="container mt-5 pt-5 mb-5 pb-5">
+    <h2>Add new Exam</h2>
+    <form [formGroup]="questionsForm">
+        <input class="form-control mb-4" placeholder="Enter Exam Title" [formControlName]="'examName'" />
+      
+        <div class="question-group">
+          <div class="question-parent mb-4" *ngFor="let question of questionCount">
+            <label class="fs-6 fw-bold mb-2">Question {{ question }}</label>
+            <input type="text" class="form-control form-control-solid mt-3" placeholder="Enter Question {{ question }} Title" [formControlName]="'Titles' + question" required>
+            <div id="question-inputs">
+              <div class="d-flex align-items-center mb-3">
+                <input class="form-check-input me-2" type="radio" value="1" [name]="'Checks' + question" required>
+                <input type="text" class="form-control form-control-solid mt-3" placeholder="Option one" [formControlName]="'Options' + question + '1'" required>
+              </div>
+              <div class="d-flex align-items-center mb-3">
+                <input class="form-check-input me-2" type="radio" value="2" [name]="'Checks' + question" required>
+                <input type="text" class="form-control form-control-solid mt-3" placeholder="Option two" [formControlName]="'Options' + question + '2'" required>
+              </div>
+              <div class="d-flex align-items-center mb-3">
+                <input class="form-check-input me-2" type="radio" value="3" [name]="'Checks' + question" required>
+                <input type="text" class="form-control form-control-solid mt-3" placeholder="Option three" [formControlName]="'Options' + question + '3'" required>
+              </div>
+              <div class="d-flex align-items-center mb-3">
+                <input class="form-check-input me-2" type="radio" value="4" [name]="'Checks' + question" required>
+                <input type="text" class="form-control form-control-solid mt-3" placeholder="Option four" [formControlName]="'Options' + question + '4'" required>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <button type="button" class="btn btn-secondary w-100 mb-4" (click)="addNewQuestion()">Add New Question</button>
+        <button class="btn btn-primary" (click)="submitForm()" [disabled]="submitText !== 'Submit'">{{submitText}}</button>
+      </form>
+</div>

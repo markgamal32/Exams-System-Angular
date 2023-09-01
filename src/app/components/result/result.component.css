@@ -1,0 +1,19 @@
+.main{
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-size: auto;
+}
+.main .container{
+    position: relative;
+    z-index: 999;
+}
+
+canvas{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+}

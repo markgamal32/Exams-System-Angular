@@ -1,0 +1,19 @@
+<div *ngIf="exam.isPassed; else failure" class="main" style="background-image: url('assets/img/beams.jpg')">
+    <div class="container text-center">
+        <img src="assets/img/success.png" class="mb-4" width="258px" />
+        <h1 class="text-success">Congratulations!</h1>
+        <p class="lead">You Passed <b>{{ exam.name }}</b> and scored <b>{{ exam.degree }}/{{ exam.questionCount }}</b></p>
+        <a href="/" class="btn btn-primary">Back Home</a>
+    </div>
+</div>
+
+<ng-template #failure>
+    <div class="main" style="background-image: url('assets/img/beams.jpg')">
+        <div class="container text-center">
+            <img src="assets/img/fail.png" class="mb-4" width="258px" />
+            <h1 class="text-danger">Sorry!</h1>
+            <p class="lead">You didn't Pass <b>{{ exam.name }}</b> and scored <b>{{ exam.degree }}/{{ exam.questionCount }}</b></p>
+            <a href="/" class="btn btn-primary">Back Home</a>
+        </div>
+    </div>
+</ng-template>
